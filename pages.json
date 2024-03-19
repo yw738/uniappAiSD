@@ -1,0 +1,63 @@
+{
+
+    "pages": [{
+            "path": "pages/login/index",
+            "style": {
+                "navigationBarTitleText": "登录",
+                "usingComponents": {}
+            }
+        },
+        {
+            "path": "pages/employment/index",
+            "style": {
+                "navigationBarTitleText": "首页"
+            }
+        },
+        {
+            "path": "pages/employment/list",
+            "style": {
+                "navigationBarTitleText": "新闻列表"
+            }
+        },
+        {
+            "path": "pages/detail/index",
+            "style": {
+                "navigationBarTitleText": "新闻详情"
+            }
+        }
+
+    ],
+    "tabBar": {
+        "backgroundColor": "#ffffff",
+        "borderStyle": "white",
+        "selectedColor": "#ff9a6a",
+        "color": "#999",
+        "list": [{
+                "pagePath": "pages/employment/index",
+                "iconPath": "static/images/tab_comic_home_n.png",
+                "selectedIconPath": "static/images/tab_comic_home_p.png",
+                "text": "首页"
+            },
+            {
+                "pagePath": "pages/employment/list",
+                "iconPath": "static/images/tab_comic_home_n.png",
+                "selectedIconPath": "static/images/tab_comic_home_p.png",
+                "text": "新闻列表"
+            }
+        ]
+    },
+    "networkTimeout": {
+        "request": 10000,
+        "connectSocket": 10000,
+        "uploadFile": 10000,
+        "downloadFile": 10000
+    },
+    "debug": true,
+    "globalStyle": {
+        "navigationBarBackgroundColor": "#FFFFFF",
+        "navigationBarTextStyle": "black",
+        "enablePullDownRefresh": false,
+        "backgroundColor": "#FFFFFF",
+        "backgroundTextStyle": "dark"
+    }
+}
