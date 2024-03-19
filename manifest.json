@@ -1,7 +1,7 @@
 {
-    "name" : "",
-    "appid" : "H5620515C",
-    "description" : "",
+    "name" : "ai绘画app",
+    "appid" : "__UNI__FB68BC8",
+    "description" : "绘画app",
     "versionName" : "1.0.0",
     "versionCode" : "100",
     "transformPx" : false,
