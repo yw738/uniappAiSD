@@ -7,7 +7,7 @@
       </view>
       <view class="u-nav-slot" slot="right">
         <view class="flex flexCen">
-          <u-icon style="margin-right:48rpx" :name="mfPng" size="24"></u-icon>
+          <u-icon style="margin-right:48rpx" @click="showAdModal()" :name="mfPng" size="24"></u-icon>
           <u-icon :name="clearPng" @click="showModal()" size="24"></u-icon>
         </view>
       </view>
@@ -69,6 +69,18 @@
     <u-modal :show="show" @confirm="confirm" title="清除提醒" :content="content" ref="uModal" showCancelButton
       @cancel="() => show = false" :asyncClose="true"></u-modal>
 
+    <!-- 看广告 -->
+    <u-modal @confirm="adConfirm" confirmText="换一个广告" cancelText="确定退出" showCancelButton @cancel="() => adShow = false"
+      :title="adTitle" :show="adShow" width="630rpx" closeOnClickOverlay>
+      <view>
+        <view class="adBox"></view>
+        <view class="adBtn">
+          <u-button type="primary" @click="adConfirm" shape="circle" class="btnStyle" size="normal">
+            <text>继续观看</text>
+          </u-button>
+        </view>
+      </view>
+    </u-modal>
   </view>
 </template>
 
@@ -85,15 +97,8 @@ import msgTopPng from "@/static/img/msg_top.png"; //
 
 export default {
   components: {},
-  computed: {
-    disabled() {
-      return false;
-    },
-  },
   data() {
     return {
-      show: false,
-
       // 图片
       mfPng: mfPng,
       clearPng: clearPng,
@@ -108,11 +113,20 @@ export default {
       msgList: [
         {}, {}, {}, {}, {}, {}
       ],
+      // 清除
+      show: false,
       content: '对话记录清除后无法恢复，请确认 是否清除？',
+
+      // 广告
+      adShow: false,
+      adTitle: ''
     };
   },
   async onShow() {
     this.getList();
+  },
+  computed: {
+
   },
   methods: {
     getList() {
@@ -134,7 +148,25 @@ export default {
         // 3秒后自动关闭
         this.show = false;
       }, 1000)
-    }
+    },
+
+    showAdModal() {
+      this.adShow = true;
+      // let timeS = 30;
+      let timeS = 5;
+      let timer;
+      if (timeS > 0) {
+        this.adTitle = `再看${timeS}秒可领取免费次数`;
+        timer = setInterval(() => {
+          timeS = timeS - 1;
+          this.adTitle = `再看${timeS}秒可领取免费次数`;
+          if (timeS <= 0) clearInterval(timer);
+        }, 1000)
+      }
+    },
+    adConfirm() {
+
+    },
   },
 };
 </script>
@@ -247,4 +279,29 @@ export default {
   width: 100%;
   border-radius: 10rpx;
 }
+
+// 广告
+.adBox {
+  height: 288rpx;
+  width: 630rpx;
+  border: 1px solid red;
+}
+
+.adBtn {
+  padding: 28rpx 48rpx 0;
+
+  text {
+    color: #fff;
+    font-size: 32rpx;
+    font-size: 32rpx;
+    line-height: 48rpx;
+  }
+
+  .btnStyle {
+    background: #2C68FF;
+    height: 88rpx;
+  }
+}
+
+// ---------------------------------------
 </style>
