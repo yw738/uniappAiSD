@@ -21,10 +21,11 @@ export default {
 
 <style>
 /**app.css**/
+
 .container {
   box-sizing: border-box;
-  background-color: #ffffff;
-  font-family: PingFangSC-Light, helvetica, "Heiti SC";
+  background-color: #F1F5FB;
+  /* font-family: PingFangSC-Light, helvetica, "Heiti SC"; */
 }
 
 view,
@@ -77,6 +78,18 @@ text {
 .flexCen {
   justify-content: space-between;
   align-items: center;
+}
+.flexR{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.flexL{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .textOverflow {

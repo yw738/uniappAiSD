@@ -1,16 +1,35 @@
 {
 
     "pages": [{
-            "path": "pages/login/index",
+            "path": "pages/msg/index",
             "style": {
-                "navigationBarTitleText": "登录",
-                "usingComponents": {}
+                "navigationStyle": "custom",
+                "navigationBarTextStyle": "white"
+            }
+        }, {
+            "path": "pages/huihua/index",
+            "style": {
+                "navigationBarTitleText": "绘画"
             }
         },
         {
-            "path": "pages/employment/index",
+            "path": "pages/zhuli/index",
             "style": {
-                "navigationBarTitleText": "首页"
+                "navigationBarTitleText": "助理"
+            }
+        },
+        {
+            "path": "pages/mycenter/index",
+            "style": {
+                "navigationBarTitleText": "我的"
+            }
+        }, {
+            "path": "pages/login/index",
+            "style": {
+                "navigationBarTitleText": "快捷登录",
+                "navigationBarBackgroundColor": "#F1F5FB",
+                "disableScroll": true,
+                "usingComponents": {}
             }
         },
         {
@@ -18,31 +37,43 @@
             "style": {
                 "navigationBarTitleText": "新闻列表"
             }
-        },
-        {
-            "path": "pages/detail/index",
+        }, {
+            "path": "pages/employment/index",
             "style": {
-                "navigationBarTitleText": "新闻详情"
+                "navigationBarTitleText": "首页"
             }
         }
+
 
     ],
     "tabBar": {
         "backgroundColor": "#ffffff",
-        "borderStyle": "white",
-        "selectedColor": "#ff9a6a",
-        "color": "#999",
+        "borderStyle": "#A2A7AD",
+        "selectedColor": "#0CB78C",
+        "color": "#A2A7AD",
         "list": [{
-                "pagePath": "pages/employment/index",
-                "iconPath": "static/images/tab_comic_home_n.png",
-                "selectedIconPath": "static/images/tab_comic_home_p.png",
-                "text": "首页"
+                "pagePath": "pages/msg/index",
+                "iconPath": "static/images/tab_00.png",
+                "selectedIconPath": "static/images/tab_01.png",
+                "text": "消息"
             },
             {
-                "pagePath": "pages/employment/list",
-                "iconPath": "static/images/tab_comic_home_n.png",
-                "selectedIconPath": "static/images/tab_comic_home_p.png",
-                "text": "新闻列表"
+                "pagePath": "pages/huihua/list",
+                "iconPath": "static/images/tab_10.png",
+                "selectedIconPath": "static/images/tab_11.png",
+                "text": "绘画"
+            },
+            {
+                "pagePath": "pages/zhuli/list",
+                "iconPath": "static/images/tab_20.png",
+                "selectedIconPath": "static/images/tab_21.png",
+                "text": "助理"
+            },
+            {
+                "pagePath": "pages/mycenter/index",
+                "iconPath": "static/images/tab_30.png",
+                "selectedIconPath": "static/images/tab_31.png",
+                "text": "我的"
             }
         ]
     },
@@ -59,5 +90,13 @@
         "enablePullDownRefresh": false,
         "backgroundColor": "#FFFFFF",
         "backgroundTextStyle": "dark"
+    },
+    "condition": { //模式配置，仅开发期间生效
+        "current": 0, //当前激活的模式(list 的索引项)
+        "list": [{
+            "name": "", //模式名称
+            "path": "", //启动页面，必选
+            "query": "" //启动参数，在页面的onLoad函数里面得到
+        }]
     }
 }

@@ -1,42 +1,26 @@
 <template>
   <view class="login">
     <view class="content">
-      <!-- 头部logo -->
-      <view class="header"> </view>
       <!-- 表单 -->
-      <view class="main">
-        <wInput
-          v-model="form.username"
-          type="text"
-          maxlength="30"
-          placeholder="用户名"
-          :focus="isFocus"
-        ></wInput>
-        <wInput
-          v-model="form.password"
-          type="password"
-          maxlength="30"
-          placeholder="密码"
-        ></wInput>
+      <view class="logo_box">
+        <view class="bg">
+          <u--image class="img" :showLoading="true" :src="src" width="317rpx" height="214rpx"></u--image>
+        </view>
       </view>
-      <view class="tips">
-        <text>tips：请输入账号和密码！</text>
+      <view class="btnBox">
+        <u-button type="success" size="normal" class="custom-style" @click="submit">
+          <text>一键快捷登录</text>
+        </u-button>
       </view>
-
-      <wButton
-        class="wbutton"
-        text="登 录"
-        :rotate="isRotate"
-        @click="submit"
-      ></wButton>
     </view>
   </view>
 </template>
 <script>
-//登录
+/**
+ * 登录
+*/
 import { loginApi } from "@/components/api/api.js";
-import wInput from "../../components/watch-login/watch-input.vue"; //input
-import wButton from "../../components/watch-login/watch-button.vue"; //button
+import logoPng from "@/static/img/login.png"; //button
 export default {
   data() {
     return {
@@ -50,12 +34,11 @@ export default {
       isRotate: false, //是否加载旋转
       isFocus: true, // 是否聚焦
       show: false,
+
+      src: logoPng
     };
   },
-  components: {
-    wInput,
-    wButton,
-  },
+
   onShow() {
     // 账号
     Object.assign(this.form, {
@@ -65,6 +48,7 @@ export default {
   },
   methods: {
     submit() {
+      return
       if (!this.form.username.length) {
         uni.showToast({
           icon: "none",
@@ -81,7 +65,7 @@ export default {
         });
         return;
       }
-      
+
       loginApi
         .login({
           username: this.form.username,
@@ -101,17 +85,53 @@ export default {
 };
 </script>
 
-<style>
-.main {
-  height: 400rpx;
+<style lang="scss" scoped>
+.login {
+  background: #F1F5FB;
+  height: 100vh;
+  color: #fff;
+  overflow: hidden;
 }
 
-.tips {
-  /* align-items: center; */
-  /* color: #333333; */
-  /* padding-left: 70rpx; */
-  /* padding-right: 70rpx; */
-  margin: 0 48rpx;
-  text-align: center;
+.custom-style {
+  background: #0CB78C;
+  height: 88rpx;
+}
+
+.login .btnBox {
+  padding: 0 30rpx;
+
+  text {
+    color: #fff !important;
+    font-size: 44rpx;
+    line-height: 44rpx;
+    letter-spacing: 2rpx;
+  }
+}
+
+.logo_box {
+  // border: 1px solid red;
+  // padding: 260rpx 230rpx 164rpx;
+  padding: 260rpx 0 164rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .bg {
+    height: 290rpx;
+    width: 290rpx;
+    background: #EEEEEE;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .img {
+    position: relative;
+    left: -44rpx;
+    // padding-right: 44rpx;
+  }
 }
 </style>
