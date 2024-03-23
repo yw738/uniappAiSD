@@ -8,7 +8,7 @@
       <view class="u-nav-slot" slot="right">
         <view class="flex flexCen">
           <u-icon style="margin-right:48rpx" :name="mfPng" size="24"></u-icon>
-          <u-icon :name="clearPng" size="24"></u-icon>
+          <u-icon :name="clearPng" @click="showModal()" size="24"></u-icon>
         </view>
       </view>
     </u-navbar>
@@ -65,6 +65,10 @@
     </view>
 
 
+    <!-- 清除 -->
+    <u-modal :show="show" @confirm="confirm" title="清除提醒" :content="content" ref="uModal" showCancelButton
+      @cancel="() => show = false" :asyncClose="true"></u-modal>
+
   </view>
 </template>
 
@@ -88,8 +92,9 @@ export default {
   },
   data() {
     return {
-      obj: {}, //{}, {}
+      show: false,
 
+      // 图片
       mfPng: mfPng,
       clearPng: clearPng,
       vipPng: vipPng,
@@ -99,13 +104,11 @@ export default {
       description: '2',
 
       scrollTop: 0,
-      old: {
-        scrollTop: 0
-      },
 
       msgList: [
         {}, {}, {}, {}, {}, {}
-      ]
+      ],
+      content: '对话记录清除后无法恢复，请确认 是否清除？',
     };
   },
   async onShow() {
@@ -123,7 +126,15 @@ export default {
       console.log('发送')
     },
 
-
+    showModal() {
+      this.show = true;
+    },
+    confirm() {
+      setTimeout(() => {
+        // 3秒后自动关闭
+        this.show = false;
+      }, 1000)
+    }
   },
 };
 </script>
