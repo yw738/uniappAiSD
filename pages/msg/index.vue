@@ -24,8 +24,7 @@
     </view>
 
 
-    <scroll-view :scroll-top="scrollTop" scroll-y="true" class="msgBox" @scrolltoupper="upper" @scrolltolower="lower"
-      @scroll="scroll">
+    <scroll-view :scroll-top="scrollTop" scroll-y="true" class="msgBox">
       <view class="item">
         <view class="flexL">
           <view class="left">
@@ -57,6 +56,7 @@
 
     </scroll-view>
 
+    <!-- 输入 -->
     <view class="inputBox flex flexCen">
       <view class="inputStyle">
         <u--input placeholder="请输入内容" border="none" clearable></u--input>
@@ -104,7 +104,7 @@ export default {
       },
 
       msgList: [
-        {},{},{},{},{},{}
+        {}, {}, {}, {}, {}, {}
       ]
     };
   },
@@ -120,29 +120,10 @@ export default {
       console.log('去升级')
     },
     sendFn() {
-      console.log('去升级')
+      console.log('发送')
     },
-    upper: function (e) {
-      console.log(e)
-    },
-    lower: function (e) {
-      console.log(e)
-    },
-    scroll: function (e) {
-      console.log(e)
-      this.old.scrollTop = e.detail.scrollTop
-    },
-    goTop: function (e) {
-      // 解决view层不同步的问题
-      this.scrollTop = this.old.scrollTop
-      this.$nextTick(function () {
-        this.scrollTop = 0
-      });
-      uni.showToast({
-        icon: "none",
-        title: "纵向滚动 scrollTop 值已被修改为 0"
-      })
-    }
+
+
   },
 };
 </script>
@@ -162,7 +143,7 @@ export default {
 .content {
   box-sizing: border-box;
   background-color: #F1F5FB;
-  height: calc(100vh - 104rpx);
+  height: calc(100vh - 106rpx);
   overflow: scroll;
 }
 
@@ -179,7 +160,7 @@ export default {
 }
 
 .msgBox {
-  border: 1px solid red;
+  // border: 1px solid red;
   box-sizing: border-box;
   height: calc(100vh - 256rpx - 84rpx);
   padding: 30rpx 24rpx;
@@ -219,7 +200,7 @@ export default {
 
   .item {
     margin-bottom: 40rpx;
-    border: 1px solid red;
+    // border: 1px solid red;
   }
 
 

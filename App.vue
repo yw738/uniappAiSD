@@ -74,9 +74,23 @@ text {
 .flex {
   display: flex;
 }
+.w100{
+  width: 100%;
+}
 
 .flexCen {
+  display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flexStart {
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
 }
 .flexR{

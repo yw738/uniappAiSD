@@ -1,6 +1,12 @@
 {
 
     "pages": [{
+            "path": "pages/mycenter/index",
+            "style": {
+                "navigationStyle": "custom",
+                "navigationBarTextStyle": "white"
+            }
+        }, {
             "path": "pages/msg/index",
             "style": {
                 "navigationStyle": "custom",
@@ -19,11 +25,6 @@
             }
         },
         {
-            "path": "pages/mycenter/index",
-            "style": {
-                "navigationBarTitleText": "我的"
-            }
-        }, {
             "path": "pages/login/index",
             "style": {
                 "navigationBarTitleText": "快捷登录",
