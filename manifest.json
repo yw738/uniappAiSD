@@ -41,8 +41,12 @@
                     "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"
                 ]
             },
-            "ios" : {},
-            "sdkConfigs" : {}
+            "ios" : {
+                "dSYMs" : false
+            },
+            "sdkConfigs" : {
+                "ad" : {}
+            }
         }
     },
     "quickapp" : {},

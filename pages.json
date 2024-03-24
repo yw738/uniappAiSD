@@ -59,13 +59,13 @@
                 "text": "消息"
             },
             {
-                "pagePath": "pages/huihua/list",
+                "pagePath": "pages/huihua/index",
                 "iconPath": "static/images/tab_10.png",
                 "selectedIconPath": "static/images/tab_11.png",
                 "text": "绘画"
             },
             {
-                "pagePath": "pages/zhuli/list",
+                "pagePath": "pages/zhuli/index",
                 "iconPath": "static/images/tab_20.png",
                 "selectedIconPath": "static/images/tab_21.png",
                 "text": "助理"
