@@ -125,4 +125,10 @@ text {
   text-overflow: ellipsis;
   padding: 05rpx;
 }
+/* -------------------------------------------- */
+
+.topLine{
+  box-sizing: border-box;
+  /* border: 1px solid red; */
+}
 </style>

@@ -1,6 +1,7 @@
 <template>
   <view class="container content">
     <view class="userBg">
+      <view class="topLine" :style="{height:topHight+'rpx'}"></view>
       <u-navbar title="个人中心" :safeAreaInsetTop="false" :autoBack="false" :fixed="false" bgColor="transparent"
         :titleStyle="{ fontSize: '36rpx', color: '#42464A' }">
         <view class="u-nav-slot" slot="left">
@@ -45,13 +46,11 @@
 import { loginApi } from "@/components/api/api.js";
 import myVipPng from "@/static/img/myVip.png"; //
 import my2vipPng from "@/static/img/my2vip.png"; //
+import topMixin from "@/utils/topMixin.js"
 
 
 export default {
-  components: {},
-  computed: {
-
-  },
+  mixins: [topMixin],
   data() {
     return {
       meunList: [
@@ -89,7 +88,7 @@ export default {
 .content {
   box-sizing: border-box;
   // background-color: #F1F5FB;
-  height: calc(100vh - 106rpx);
+  height: calc(100vh);
   overflow: scroll;
   // opacity: 0.9;
   // height: 50vh;

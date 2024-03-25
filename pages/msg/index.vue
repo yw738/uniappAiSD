@@ -1,30 +1,36 @@
 <template>
   <view class="container content">
-    <u-navbar :fixed="false" bgColor="transparent" title="会话" :titleStyle="{ fontSize: '36rpx', color: '#42464A' }"
-      :safeAreaInsetTop="false">
-      <view class="u-nav-slot" slot="left">
-        <u-icon :name="vipPng" size="24"></u-icon>
-      </view>
-      <view class="u-nav-slot" slot="right">
-        <view class="flex flexCen">
-          <u-icon style="margin-right:48rpx" @click="showAdModal()" :name="mfPng" size="24"></u-icon>
-          <u-icon :name="clearPng" @click="showModal()" size="24"></u-icon>
+    <view>
+
+
+      <view class="topLine" :style="{ height: topHight + 'rpx' }"></view>
+      <u-navbar :fixed="false" bgColor="transparent" title="会话" :titleStyle="{ fontSize: '36rpx', color: '#42464A' }"
+        :safeAreaInsetTop="false">
+        <view class="u-nav-slot" slot="left">
+          <u-icon :name="vipPng" size="24"></u-icon>
+        </view>
+        <view class="u-nav-slot" slot="right">
+          <view class="flex flexCen">
+            <u-icon style="margin-right:48rpx" @click="showAdModal()" :name="mfPng" size="24"></u-icon>
+            <u-icon :name="clearPng" @click="showModal()" size="24"></u-icon>
+          </view>
+        </view>
+      </u-navbar>
+
+      <!-- 提示 -->
+      <view class="errorBox flex flexCen">
+        <view>
+          <text>当前剩余免费次（{{ description }}）</text>
+        </view>
+        <view class="flex flexCen" @click="toVip()">
+          <text style="margin-right: 20rpx;">去升级</text>
+          <u-icon name="arrow-right" color="#F52F3E" size="14"></u-icon>
         </view>
       </view>
-    </u-navbar>
-
-    <view class="errorBox flex flexCen">
-      <view>
-        <text>当前剩余免费次（{{ description }}）</text>
-      </view>
-      <view class="flex flexCen" @click="toVip()">
-        <text style="margin-right: 20rpx;">去升级</text>
-        <u-icon name="arrow-right" color="#F52F3E" size="14"></u-icon>
-      </view>
     </view>
-
-
-    <scroll-view :scroll-top="scrollTop" scroll-y="true" class="msgBox">
+    <!--   -->
+    <scroll-view :style="{ height: `calc(100vh - 258rpx - ${topHight}rpx)` }" :scroll-top="scrollTop" scroll-y="true"
+      class="msgBox">
       <view class="item">
         <view class="flexL">
           <view class="left">
@@ -56,7 +62,7 @@
 
     </scroll-view>
 
-    <!-- 输入 -->
+    <!-- 输入框 -->
     <view class="inputBox flex flexCen">
       <view class="inputStyle">
         <u--input placeholder="请输入内容" border="none" clearable></u--input>
@@ -94,9 +100,11 @@ import clearPng from "@/static/img/claer.png"; //
 import mfPng from "@/static/img/mf.png"; //
 import sendPng from "@/static/img/send.png"; //
 import msgTopPng from "@/static/img/msg_top.png"; //
+import topMixin from "@/utils/topMixin.js"
 
 export default {
   components: {},
+  mixins: [topMixin],
   data() {
     return {
       // 图片
@@ -119,10 +127,12 @@ export default {
 
       // 广告
       adShow: false,
-      adTitle: ''
+      adTitle: '',
     };
   },
   async onShow() {
+    let app = uni.getSystemInfoSync()
+
     this.getList();
   },
   computed: {
@@ -186,8 +196,9 @@ export default {
 .content {
   box-sizing: border-box;
   background-color: #F1F5FB;
-  height: calc(100vh - 106rpx);
-  overflow: scroll;
+  // overflow: scroll;
+  // display: flex;
+  // flex-direction: column;
 }
 
 .errorBox {
@@ -205,7 +216,7 @@ export default {
 .msgBox {
   // border: 1px solid red;
   box-sizing: border-box;
-  height: calc(100vh - 256rpx - 84rpx);
+  // height: calc(100vh - 256rpx);
   padding: 30rpx 24rpx;
 
   .msgTopimg {
@@ -267,7 +278,7 @@ export default {
   padding: 14rpx 24rpx;
   background: #fff;
   position: fixed;
-  bottom: 100rpx;
+  bottom: 0;
   left: 0;
   width: 100vw;
 
@@ -302,6 +313,7 @@ export default {
     height: 88rpx;
   }
 }
+
 
 // ---------------------------------------
 </style>
