@@ -7,7 +7,7 @@ export default {
     },
     async onShow() {
         let app = uni.getSystemInfoSync()
-        this.topHight = app.statusBarHeight;
+        this.topHight = app.statusBarHeight * 2;
     },
     beforeCreate() {},
     created() {},

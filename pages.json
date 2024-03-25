@@ -15,7 +15,20 @@
         }, {
             "path": "pages/huihua/index",
             "style": {
-                "navigationBarTitleText": "绘画"
+                "navigationStyle": "custom",
+                "navigationBarTextStyle": "white"
+            }
+        }, {
+            "path": "pages/huihua/detail",
+            "style": {
+                "navigationStyle": "custom",
+                "navigationBarTextStyle": "white"
+            }
+        }, {
+            "path": "pages/huihua/hhlist",
+            "style": {
+                "navigationStyle": "custom",
+                "navigationBarTextStyle": "white"
             }
         },
         {

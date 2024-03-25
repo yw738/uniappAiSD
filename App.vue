@@ -9,7 +9,7 @@ export default {
     encryptedData: null,
     iv: null,
   },
-  onLaunch: function () {},
+  onLaunch: function () { },
   methods: {},
 };
 </script>
@@ -19,7 +19,7 @@ export default {
 @import "@/uni_modules/uview-ui/index.scss";
 </style>
 
-<style>
+<style lang="scss">
 /**app.css**/
 
 .container {
@@ -50,22 +50,26 @@ text {
   height: 0;
   color: transparent;
 }
+
 /*  */
 
 .home_box {
   background: #fff;
 }
+
 .head {
   /* height: 30rpx; */
   /* line-height: 30rpx; */
   padding: 20rpx;
 }
+
 .head .tit {
   font-size: 30rpx;
   color: #121212;
   letter-spacing: 2rpx;
   font-weight: bold;
 }
+
 .home_box .more span {
   margin-right: 06rpx;
   font-size: 14rpx;
@@ -74,7 +78,8 @@ text {
 .flex {
   display: flex;
 }
-.w100{
+
+.w100 {
   width: 100%;
 }
 
@@ -83,23 +88,27 @@ text {
   justify-content: space-between;
   align-items: center;
 }
+
 .flexCenter {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .flexStart {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
-.flexR{
+
+.flexR {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
 }
-.flexL{
+
+.flexL {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -125,10 +134,25 @@ text {
   text-overflow: ellipsis;
   padding: 05rpx;
 }
-/* -------------------------------------------- */
 
-.topLine{
+/* -------------------------------------------- */
+// 顶部安全距离
+.topLine {
   box-sizing: border-box;
   /* border: 1px solid red; */
+}
+
+// 提示 剩余免费次数 
+.errorBox {
+  height: 72rpx;
+  background: #FFF2F5;
+  padding: 0 32rpx;
+
+}
+
+.errorBox text {
+  color: #F52F3E;
+  font-size: 28rpx;
+  line-height: 40rpx;
 }
 </style>

@@ -96,6 +96,7 @@ export default {
 .custom-style {
   background: #0CB78C;
   height: 88rpx;
+  border: none;
 }
 
 .login .btnBox {
