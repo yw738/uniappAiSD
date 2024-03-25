@@ -5,7 +5,6 @@
       <u-navbar :fixed="false" bgColor="#fff" title="绘画" :titleStyle="{ fontSize: '36rpx', color: '#42464A' }"
         :safeAreaInsetTop="false">
         <view class="u-nav-slot" slot="left">
-          <!-- <u-icon :name="vipPng" size="24"></u-icon> -->
         </view>
         <view class="u-nav-slot" slot="right">
           <view @click="toHhList()"><text>我的绘画</text></view>

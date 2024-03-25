@@ -47,18 +47,12 @@
             }
         },
         {
-            "path": "pages/employment/list",
+            "path": "pages/toVip/index",
             "style": {
-                "navigationBarTitleText": "新闻列表"
-            }
-        }, {
-            "path": "pages/employment/index",
-            "style": {
-                "navigationBarTitleText": "首页"
+                "navigationStyle": "custom",
+                "navigationBarTextStyle": "white"
             }
         }
-
-
     ],
     "tabBar": {
         "backgroundColor": "#ffffff",

@@ -2,12 +2,14 @@
 export default {
     data() {
         return {
-            topHight: '0'
+            topHight: '0',
+            bottomHight: '0'
         }
     },
     async onShow() {
         let app = uni.getSystemInfoSync()
         this.topHight = app.statusBarHeight * 2;
+        this.bottomHight = app.screenHeight - app.safeArea.bottom;
     },
     beforeCreate() {},
     created() {},

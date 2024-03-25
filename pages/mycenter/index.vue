@@ -27,7 +27,7 @@
 
 
     <view class="flexCenter w100">
-      <u--image :src="my2vipPng" width="680rpx" height="126rpx"></u--image>
+      <u--image @click="toVip()" :src="my2vipPng" width="680rpx" height="126rpx"></u--image>
     </view>
 
     <view class="cardBox">
@@ -73,7 +73,9 @@ export default {
       let a = uni.getStorageSync("myName");
     },
     toVip() {
-      console.log('去升级')
+      uni.navigateTo({
+        url: '/pages/toVip/index'
+      })
     },
     sendFn() {
       console.log('发送')
@@ -96,7 +98,6 @@ export default {
 
 .userBg {
   background: radial-gradient(52% 101% at 16% 6%, rgba(255, 97, 40, 0.12) 0%, rgba(255, 255, 255, 0) 100%);
-
 }
 
 .userBox {

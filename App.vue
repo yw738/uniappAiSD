@@ -82,7 +82,18 @@ text {
 .w100 {
   width: 100%;
 }
+.labelTit {
+  padding: 30rpx;
 
+  text {
+    font-weight: 500;
+    font-size: 32rpx;
+    color: #42464A;
+    line-height: 45rpx;
+    text-align: left;
+    font-style: normal;
+  }
+}
 .flexCen {
   display: flex;
   justify-content: space-between;
@@ -100,7 +111,11 @@ text {
   justify-content: flex-start;
   align-items: center;
 }
-
+.flexBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .flexR {
   display: flex;
   flex-direction: column;
@@ -137,7 +152,7 @@ text {
 
 /* -------------------------------------------- */
 // 顶部安全距离
-.topLine {
+.topLine,.bottomLine {
   box-sizing: border-box;
   /* border: 1px solid red; */
 }
